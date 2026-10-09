@@ -1,0 +1,14 @@
+# Amaya
+
+> Amaya es un hotel boutique en Valladolid, Yucatán, México. Concepto: "El arte de habitar la calma".
+
+## Páginas
+- [Inicio](https://www.REEMPLAZAR-DOMINIO.com/): presentación, habitaciones, Valladolid y reservas.
+- [Habitaciones](https://www.REEMPLAZAR-DOMINIO.com/#habitaciones)
+- [Valladolid](https://www.REEMPLAZAR-DOMINIO.com/#valladolid)
+- [Reservar](https://www.REEMPLAZAR-DOMINIO.com/#reservar): reserva directa.
+
+## Datos verificables
+- Ubicación: Valladolid, Yucatán, México.
+- Reserva directa en el sitio oficial.
+- [Completar: dirección, teléfono, número de habitaciones, check-in y check-out cuando estén confirmados]

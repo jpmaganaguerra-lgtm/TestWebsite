@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Motores de IA: permitidos para que puedan citar el sitio
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.REEMPLAZAR-DOMINIO.com/sitemap.xml
