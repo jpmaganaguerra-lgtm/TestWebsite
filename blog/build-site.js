@@ -12,25 +12,25 @@ const head = (title, desc, url, extra, up) => `<!doctype html>
 <html lang="es-MX"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="${url}"><link rel="icon" href="${up}images/brand/favicon.png">
-<meta property="og:type" content="article"><meta property="og:site_name" content="Amaya"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:locale" content="es_MX">
+<meta property="og:type" content="article"><meta property="og:site_name" content="AmayA"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${up}css/style.css">${extra}</head><body>`;
-const top = up => `<header class="top"><a class="brand" href="${up}"><img src="${up}images/brand/logo-carbon.png" alt="" width="34" height="45"><span>AMAYA</span></a><nav aria-label="Principal"><ul><li><a href="${up}#habitaciones">Habitaciones</a></li><li><a href="${up}#valladolid">Valladolid</a></li><li><a href="${up}blog/">Blog</a></li><li><a href="${up}#reservar">Reservar</a></li></ul></nav></header>`;
-const foot = up => `<footer><b>AMAYA</b><span>Valladolid, Yucatán</span></footer></body></html>`;
+const top = up => `<header class="top"><a class="brand" href="${up}"><img src="${up}images/brand/logo-carbon.png" alt="" width="34" height="45"><span>AmayA</span></a><nav aria-label="Principal"><ul><li><a href="${up}#habitaciones">Habitaciones</a></li><li><a href="${up}#valladolid">Valladolid</a></li><li><a href="${up}blog/">Blog</a></li><li><a href="${up}#reservar">Reservar</a></li></ul></nav></header>`;
+const foot = up => `<footer><b>AmayA</b><span>Valladolid, Yucatán</span></footer></body></html>`;
 if (posts.length) {
   fs.mkdirSync(path.join(__dirname, 'posts'), { recursive: true });
   posts.forEach(p => {
     const url = `${DOMAIN}/blog/posts/${p.slug}.html`;
     const ld = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: `${DOMAIN}/${p.image}`, datePublished: p.date, dateModified: p.updated || p.date,
-      author: { '@type': 'Organization', name: 'Amaya', url: DOMAIN + '/' }, publisher: { '@type': 'Organization', name: 'Amaya', url: DOMAIN + '/', logo: { '@type': 'ImageObject', url: `${DOMAIN}/images/brand/logo-carbon.png` } }, mainEntityOfPage: { '@type': 'WebPage', '@id': url } };
+      author: { '@type': 'Organization', name: 'AmayA', url: DOMAIN + '/' }, publisher: { '@type': 'Organization', name: 'AmayA', url: DOMAIN + '/', logo: { '@type': 'ImageObject', url: `${DOMAIN}/images/brand/logo-carbon.png` } }, mainEntityOfPage: { '@type': 'WebPage', '@id': url } };
     const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Inicio', item: DOMAIN + '/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: DOMAIN + '/blog/' }, { '@type': 'ListItem', position: 3, name: p.title, item: url }] };
-    const html = head(`${p.title} · Amaya`, p.description, url, `<meta property="og:image" content="${DOMAIN}/${p.image}"><script type="application/ld+json">${JSON.stringify(ld)}</script><script type="application/ld+json">${JSON.stringify(bc)}</script>`, '../../') + top('../../') +
+    const html = head(`${p.title} · AmayA`, p.description, url, `<meta property="og:image" content="${DOMAIN}/${p.image}"><script type="application/ld+json">${JSON.stringify(ld)}</script><script type="application/ld+json">${JSON.stringify(bc)}</script>`, '../../') + top('../../') +
       `<p class="crumbs"><a href="../../">Inicio</a> / <a href="../">Blog</a> / ${esc(p.title)}</p><article class="post"><h1>${esc(p.title)}</h1><p><time datetime="${p.date}">${p.date}</time> · ${esc(p.category || 'Guías')}</p>${p.body}<p><a class="btn" href="../../#reservar">Reservar estancia</a></p><p><a class="link" href="../">Volver al blog</a></p></article>` + foot();
     fs.writeFileSync(path.join(__dirname, 'posts', p.slug + '.html'), html);
   });
   const list = posts.map(p => `<li><a class="link" href="posts/${p.slug}.html">${esc(p.title)}</a><br><small>${p.date} · ${esc(p.category || 'Guías')}</small><p>${esc(p.description)}</p></li>`).join('');
-  fs.writeFileSync(path.join(__dirname, 'index.html'), head('Blog · Amaya, hotel boutique en Valladolid', 'Guías de Valladolid, Yucatán, escritas desde Amaya.', DOMAIN + '/blog/', '', '../') + top('../') + `<main class="post"><h1>Blog</h1><ul style="list-style:none;padding:0">${list}</ul></main>` + foot());
+  fs.writeFileSync(path.join(__dirname, 'index.html'), head('Blog · AmayA, hotel boutique en Valladolid', 'Guías de Valladolid, Yucatán, escritas desde Amaya.', DOMAIN + '/blog/', '', '../') + top('../') + `<main class="post"><h1>Blog</h1><ul style="list-style:none;padding:0">${list}</ul></main>` + foot());
 }
 const today = new Date().toISOString().slice(0, 10);
 const urls = [{ loc: DOMAIN + '/', lastmod: today, freq: 'monthly', pr: '1.0' }];

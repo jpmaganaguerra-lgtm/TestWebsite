@@ -17,7 +17,9 @@ document.addEventListener('click',function(e){var el=e.target.closest('[data-tra
 
 /* ---- header, nav activo, reveal ---- */
 var hdr=document.querySelector('header.top');
-addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>8);},{passive:true});
+function hdrState(){hdr.classList.toggle('scrolled',scrollY>8);hdr.classList.toggle('show',scrollY>40);}
+addEventListener('scroll',hdrState,{passive:true});hdrState();
+document.querySelectorAll('.slot img').forEach(function(i){if(i.complete&&i.naturalWidth)i.parentNode.classList.add('ok');});
 var links=document.querySelectorAll('nav a');
 if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(a){a.removeAttribute('aria-current');});var a=document.querySelector('nav a[href="#'+en.target.id+'"]');if(a)a.setAttribute('aria-current','true');}});},{rootMargin:'-40% 0px -55% 0px'});

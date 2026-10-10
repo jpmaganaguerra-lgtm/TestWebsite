@@ -1,6 +1,6 @@
-# Amaya
+# AmayA
 
-> Amaya es un hotel boutique en Valladolid, Yucatán, México. Concepto: "El arte de habitar la calma".
+> AmayA es un hotel boutique en Valladolid, Yucatán, México. Concepto: "El arte de habitar la calma".
 
 ## Páginas
 - [Inicio](https://www.REEMPLAZAR-DOMINIO.com/): presentación, habitaciones, Valladolid y reservas.
